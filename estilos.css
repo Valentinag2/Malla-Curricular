@@ -1,1 +1,143 @@
 # Malla-Curricular
+/* Estilos Generales */
+:root {
+    --color-fondo: #fce4ec; /* Rosa muy claro */
+    --color-semestre: #f8bbd0; /* Rosa claro */
+    --color-ramo: #ffffff;
+    --color-ramo-aprobado: #e91e63; /* Rosa oscuro */
+    --color-ramo-bloqueado: #f0f0f0;
+    --color-texto: #333333;
+    --color-texto-aprobado: #ffffff;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --fuente-principal: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--color-ramo-aprobado);
+    font-weight: 600;
+}
+
+/* Contenedor de la Malla */
+.malla-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.semestre-columna {
+    background-color: var(--color-semestre);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 15px var(--color-sombra);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.semestre-titulo {
+    font-weight: 600;
+    color: var(--color-ramo-aprobado);
+    border-bottom: 2px solid var(--color-ramo-aprobado);
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+/* Estilos de los Ramos */
+.ramo {
+    background-color: var(--color-ramo);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px var(--color-sombra);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: left;
+    font-size: 0.9em;
+    position: relative;
+}
+
+.ramo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ramo.aprobado {
+    background-color: var(--color-ramo-aprobado);
+    color: var(--color-texto-aprobado);
+    text-decoration: line-through;
+}
+
+.ramo.bloqueado {
+    background-color: var(--color-ramo-bloqueado);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Modal de Alerta */
+.modal-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* Botón de Reinicio */
+footer {
+    margin-top: 30px;
+}
+
+#reset-button {
+    background-color: var(--color-ramo-aprobado);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--fuente-principal);
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#reset-button:hover {
+    background-color: #c2185b; /* Un tono más oscuro de rosa */
+}
